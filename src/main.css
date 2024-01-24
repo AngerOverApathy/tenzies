@@ -1,4 +1,4 @@
 .page {
-    width: 50%;        /* or any specific width */
-    margin: 0 auto;    /* Auto margin on left and right */
+    display: flex;
+    justify-content: center;
 }

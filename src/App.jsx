@@ -6,8 +6,6 @@ function App() {
     <>
       <div className="container">
         <div className="second-container">
-            <div className='third-container'>
-            </div>
         </div>
       </div>
     </>
