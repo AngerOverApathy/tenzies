@@ -11,4 +11,17 @@
   padding: 38px 42px;
   border-radius: 10px;
   background: #F5F5F5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dice-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  grid-template-rows: repeat(2, 1fr);
+  gap: 25px; 
+  justify-content: center;
+  align-items: center;
+  width: fit-content; 
 }
