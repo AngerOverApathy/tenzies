@@ -16,14 +16,14 @@ export default function App() {
 
     const diceElements = dice.map((die, index) => <Die key={index} value={die} />)
 
-    // return (
-    //     <div className="container">
-    //         <div className="second-container">
-    //             <div className="dice-container">
-    //                 {diceElements}
-    //             </div>
-    //         </div>
-    //     </div>
-    // );
+    return (
+        <div className="container">
+            <div className="second-container">
+                <div className="dice-container">
+                    {diceElements}
+                </div>
+            </div>
+        </div>
+    );
 }
 
