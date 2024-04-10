@@ -4,7 +4,8 @@ import './App.css';
 
 export default function App() {
     const [dice, setDice] = useState(allNewDice());
-
+    const diceElements = dice.map((die, index) => <Die key={index} value={die} />)
+    
     function allNewDice() {
         let newArray = [];
         for (let i = 0; i < 10; i++) {
@@ -14,7 +15,9 @@ export default function App() {
         return newArray;
     }
 
-    const diceElements = dice.map((die, index) => <Die key={index} value={die} />)
+    function rollDice() {
+        setDice(allNewDice());
+    }
 
     return (
         <div className="container">
@@ -22,6 +25,7 @@ export default function App() {
                 <div className="dice-container">
                     {diceElements}
                 </div>
+                <button className='rollBtn' onClick={rollDice}>Roll</button>
             </div>
         </div>
     );
