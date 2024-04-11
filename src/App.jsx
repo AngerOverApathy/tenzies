@@ -4,15 +4,16 @@ import './App.css';
 
 export default function App() {
     const [dice, setDice] = useState(allNewDice());
-    const diceElements = dice.map((die, index) => <Die key={index} value={die} />)
+    const diceElements = dice.map((die, index) => <Die key={index} value={die.value} isHeld={die.isHeld} />)
     
     function allNewDice() {
         let newArray = [];
         for (let i = 0; i < 10; i++) {
             let digit = Math.floor(Math.random() * 6) + 1;
-            newArray.push(digit);
+            newArray.push({ value: digit, isHeld: false });
         }
         return newArray;
+        console.log(newArray);
     }
 
     function rollDice() {
