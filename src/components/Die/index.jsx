@@ -4,12 +4,11 @@ import './style.css';
 export default function Die(props) {
     const dieClass = `die ${props.isHeld ? 'heldDie' : ''}`;
 
-    function handleHold() {
-        props.holdDice(props.id);
-    }
-
     return (
-        <div className={dieClass} onClick={handleHold}>
+        <div 
+            className={dieClass} 
+            onClick={props.holdDice}
+        >
             <h2 className='die-num'>{props.value}</h2>
         </div>
     );
