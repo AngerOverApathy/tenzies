@@ -5,7 +5,7 @@ import './App.css';
 
 export default function App() {
     const [dice, setDice] = useState(allNewDice());
-    const diceElements = dice.map((die) => <Die key={die.id} id={die.id} value={die.value} isHeld={die.isHeld} onHold={holdDice} />)
+    const diceElements = dice.map((die) => <Die key={die.id} value={die.value} isHeld={die.isHeld} holdDice={() => holdDice(die.id)} />)
     
     function allNewDice() {
         let newArray = [];

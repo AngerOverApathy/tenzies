@@ -5,7 +5,7 @@ export default function Die(props) {
     const dieClass = `die ${props.isHeld ? 'heldDie' : ''}`;
 
     function handleHold() {
-        props.onHold(props.id);
+        props.holdDice(props.id);
     }
 
     return (
