@@ -23,13 +23,13 @@ export default function App() {
         setDice(allNewDice());
     }
 
-    // function holdDice(id) {
-    //     setDice(oldDice => oldDice.map(die => {
-    //         return die.id === id ? 
-    //             {...die, isHeld: !die.isHeld} :
-    //             die
-    //     }))
-    // }
+    function holdDice(id) {
+        setDice(oldDice => oldDice.map(die => {
+            return die.id === id ? 
+                {...die, isHeld: !die.isHeld} :
+                die
+        }))
+    }
 
     return (
         <div className="container">
