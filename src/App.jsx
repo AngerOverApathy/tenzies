@@ -9,11 +9,12 @@ export default function App() {
     function allNewDice() {
         let newArray = [];
         for (let i = 0; i < 10; i++) {
-            let digit = Math.floor(Math.random() * 6) + 1;
-            newArray.push({ value: digit, isHeld: false });
+            newArray.push({ 
+                value: Math.ceil(Math.random() * 6), 
+                isHeld: true 
+            });
         }
         return newArray;
-        console.log(newArray);
     }
 
     function rollDice() {
