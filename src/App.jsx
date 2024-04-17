@@ -25,12 +25,11 @@ export default function App() {
 
     function holdDice(id) {
         setDice(oldDice => oldDice.map(die => {
-            if (die.id === id) {
-                return { ...die, isHeld: !die.isHeld }; // Toggle the isHeld property
-            }
-            return die; // Return the dice as is if the ID doesn't match
-        }));
-    }    
+            return die.id === id ? 
+                {...die, isHeld: !die.isHeld} :
+                die
+        }))
+    }
 
     return (
         <div className="container">
