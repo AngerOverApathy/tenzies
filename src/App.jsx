@@ -12,11 +12,15 @@ export default function App() {
         for (let i = 0; i < 10; i++) {
             newArray.push({ 
                 value: Math.ceil(Math.random() * 6), 
-                isHeld: true,
+                isHeld: false,
                 id: nanoid() 
             });
         }
         return newArray;
+    }
+
+    function rollDice() {
+        setDice(allNewDice());
     }
 
     function holdDice(id) {
@@ -26,12 +30,7 @@ export default function App() {
             }
             return die; // Return the dice as is if the ID doesn't match
         }));
-    }
-    
-
-    function holdDice(id){
-        console.log(id)
-    }
+    }    
 
     return (
         <div className="container">
