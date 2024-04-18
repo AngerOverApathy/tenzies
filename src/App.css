@@ -17,6 +17,11 @@
   align-items: center; /* Centers children horizontally in the flex container */
 }
 
+.instructions {
+  text-align: center;
+  margin-top: 0px; 
+}
+
 .dice-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr); 
