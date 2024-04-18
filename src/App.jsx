@@ -19,9 +19,15 @@ export default function App() {
         return newArray;
     }
 
-    function rollDice() {
-        setDice(allNewDice());
+    function holdDice(id) {
+        setDice(oldDice => oldDice.map(die => {
+            if (die.id === id) {
+                return { ...die, isHeld: !die.isHeld }; // Toggle the isHeld property
+            }
+            return die; // Return the dice as is if the ID doesn't match
+        }));
     }
+    
 
     function holdDice(id){
         console.log(id)
