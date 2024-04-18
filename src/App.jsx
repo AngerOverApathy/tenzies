@@ -7,23 +7,27 @@ export default function App() {
     const [dice, setDice] = useState(allNewDice());
     const diceElements = dice.map((die) => <Die key={die.id} value={die.value} isHeld={die.isHeld} holdDice={() => holdDice(die.id)} />)
     
-    function allNewDice() {
-        let newArray = [];
-        for (let i = 0; i < 10; i++) {
-            newArray.push({ 
-                value: Math.ceil(Math.random() * 6), 
-                isHeld: false,
-                id: nanoid() 
-            });
+    function generateNewDie() {
+        return {
+            value: Math.ceil(Math.random() * 6),
+            isHeld: false,
+            id: nanoid()
         }
-        return newArray;
     }
-
+    
+    function allNewDice() {
+        const newDice = []
+        for (let i = 0; i < 10; i++) {
+            newDice.push(generateNewDie())
+        }
+        return newDice
+    }
+   
     function rollDice() {
-        setDice(currentDice => currentDice.map(die => {
-        return die.isHeld ? 
-            die : 
-            {...die, value: Math.ceil(Math.random() * 6)}
+        setDice(oldDice => oldDice.map(die => {
+            return die.isHeld ? 
+                die :
+                generateNewDie()
         }))
     }
 
