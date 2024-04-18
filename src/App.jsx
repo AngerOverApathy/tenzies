@@ -1,12 +1,32 @@
 import Die from './components/Die'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import './App.css';
 
 export default function App() {
     const [dice, setDice] = useState(allNewDice());
-    const diceElements = dice.map((die) => <Die key={die.id} value={die.value} isHeld={die.isHeld} holdDice={() => holdDice(die.id)} />)
+    const [tenzies, setTenzies] = useState(false);
+
+    useEffect(() => {
+        // Check if all dice are held
+        const allHeld = dice.every(die => die.isHeld);
+        // Check if all held dice have the same value
+        const allSameValue = dice.every(die => die.value === dice[0].value);
     
+        if (allHeld && allSameValue) {
+            setTenzies(true); // Set tenzies to true indicating the game is won
+            console.log("You won!"); // Log "You won!" to the console
+        }
+    }, [dice]); // This useEffect depends on the dice state and runs whenever it changes
+    
+    
+    const diceElements = dice.map((die) => <Die 
+        key={die.id} 
+        value={die.value} 
+        isHeld={die.isHeld} 
+        holdDice={() => holdDice(die.id)} 
+    />)
+
     function generateNewDie() {
         return {
             value: Math.ceil(Math.random() * 6),
