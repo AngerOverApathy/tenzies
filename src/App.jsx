@@ -43,11 +43,12 @@ export default function App() {
     }
    
     function rollDice() {
-        setDice(oldDice => oldDice.map(die => {
-            return die.isHeld ? 
-                die :
-                generateNewDie()
-        }))
+        if (tenzies) {
+            setTenzies(false); // Reset the game state
+            setDice(allNewDice()); // Start a new game
+        } else {
+            setDice(oldDice => oldDice.map(die => die.isHeld ? die : generateNewDie()));
+        }
     }
 
     function holdDice(id) {
