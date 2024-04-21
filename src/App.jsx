@@ -65,7 +65,9 @@ export default function App() {
                 <div className="dice-container">
                     {diceElements}
                 </div>
-                <button className='rollBtn' onClick={rollDice}>Roll</button>
+                <button className='rollBtn' onClick={rollDice}>
+                    {dice.every(die => die.isHeld) ? "New Game" : "Roll"}
+                </button>
             </div>
         </div>
     );
