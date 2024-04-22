@@ -8,9 +8,7 @@ export default function App() {
     const [tenzies, setTenzies] = useState(false);
 
     useEffect(() => {
-        // Check if all dice are held
         const allHeld = dice.every(die => die.isHeld);
-        // Check if all held dice have the same value
         const allSameValue = dice.every(die => die.value === dice[0].value);
     
         if (allHeld && allSameValue) {
